@@ -12,6 +12,8 @@
         <module>Client</module>
         <module>Utils</module>
         <module>DBConnector</module>
+        <module>Spi</module>
+        <module>Greetings</module>
     </modules>
     <packaging>pom</packaging>
 

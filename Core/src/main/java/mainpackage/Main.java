@@ -1,6 +1,9 @@
+package mainpackage;
+
 import com.google.gson.Gson;
 import domain.WebserverDbEntity;
 import sourcepackage.DBConnection;
+import spi.Greeting;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -9,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ServiceLoader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,6 +20,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Händer det inget?");
+        ServiceLoader<Greeting> greetings = ServiceLoader.load(Greeting.class);
+
+
+        for(Greeting g : greetings) {
+            System.out.println(g.greeting("Ola"));
+        }
 
 
         ExecutorService executorService = Executors.newCachedThreadPool();
